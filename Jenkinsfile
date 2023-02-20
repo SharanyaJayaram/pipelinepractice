@@ -12,18 +12,12 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                input {
-                message "Can we Proceed?"
-                ok "Yes"
-                submitter "Sharanya Jayaram"
+                script {
+                env.selected_environment = input  message: 'Select environment to Deploy',ok : 'Proceed',id :'tag_id',
+                parameters:[choice(choices: ['DEV', 'QA', 'STAGING', 'PROD'], description: 'Select environment', name: 'env')]
+                echo "Deploying in ${env.selected_environment}."
                 }
-                parameters {
-                    string(name: 'DEVELOPER', description: 'Member')
-                }
-            steps {
-                echo "${DEVELOPER}, is proceeding..."
             }
-        }
         }
     }
     post { 
