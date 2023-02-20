@@ -16,10 +16,10 @@ pipeline {
                 message "Can we Proceed?"
                 ok "Yes"
                 submitter "Sharanya Jayaram"
+                }
                 parameters {
                     string(name: 'DEVELOPER', description: 'Member')
                 }
-            }
             steps {
                 echo "${DEVELOPER}, is proceeding..."
             }
