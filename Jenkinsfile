@@ -4,6 +4,7 @@ pipeline {
         pollSCM('0 * * * *')
     }
     options {
+        fastFail()
         timestamps ()
         timeout(time: 2, unit: 'MINUTES')   
         skipDefaultCheckout true
