@@ -2,13 +2,14 @@ pipeline {
     agent any
     options{
         timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '2'))
     }
     
     stages {
         stage('Build') {
             steps {
                 script {
-                    sh "sudo apt install nodejs"
+                    echo "Building"
                     // Check if the build was successful
                     if (currentBuild.result != 'SUCCESS') {
                         error('Build failed!')
