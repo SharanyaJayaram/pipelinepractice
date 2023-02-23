@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                apt install nodejs
                 script {
+                    sh 'apt install nodejs'
                     // Check if the build was successful
                     if (currentBuild.result != 'SUCCESS') {
                         error('Build failed!')
