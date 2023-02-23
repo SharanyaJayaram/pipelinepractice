@@ -12,7 +12,7 @@ pipeline {
                     echo "Building"
                     // Check if the build was successful
                     if (currentBuild.result != 'SUCCESS') {
-                        error('Build failed!')
+                        error('Build failed!:${env.BUILD_NUMBER}')
                     }
                 }
             }
